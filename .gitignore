@@ -1,3 +1,6 @@
+/conf/user.coffee
+/conf/Vagrantfile
+/log
 /node_modules
 .*
 !.gitignore
