@@ -1,0 +1,5 @@
+[opennebula]
+name=opennebula
+baseurl=http://10.10.10.1:5680/centos7/opennebula/repo/5.2/CentOS/7/x86_64
+enabled=1
+gpgcheck=0
