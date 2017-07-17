@@ -1,7 +1,7 @@
 # Nebula Front End Install
 
 Install Nebula front end on the specified hosts.
-http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_installation.html#step-4-ruby-runtime-installation
+http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_installation.html
 
     module.exports = header: 'Nebula Install', handler: (options) ->
       nebula = @config.nebula
