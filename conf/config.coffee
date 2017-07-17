@@ -98,7 +98,7 @@ module.exports =
       constraints: nodes: ['nebula01.nebula.ryba']
       config: nebula:
         password: "secret"
-        repo: "#{__dirname}/online/opennebula.repo"s
+        repo: "#{__dirname}/online/opennebula.repo"
   nodes:
     'nebula01.nebula.ryba':
       tags:
