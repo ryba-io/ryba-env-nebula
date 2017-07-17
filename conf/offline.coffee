@@ -29,3 +29,6 @@ module.exports =
     'masson/core/ntp':
       config: ntp:
         fudge: true
+    './lib/nebula':
+      config: nebula:
+        repo: "#{__dirname}/offline/opennebula.repo"
