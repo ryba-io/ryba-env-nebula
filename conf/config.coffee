@@ -54,6 +54,8 @@ module.exports =
       constraints: tags: 'environment': 'dev'
       config: yum:
         update: true
+        epel:
+          enabled: true
         packages:
           'tree': true, 'git': true, 'htop': false, 'vim': true, 
           'bash-completion': true, 'unzip': true,
@@ -84,6 +86,19 @@ module.exports =
         cacert:
           source: "#{__dirname}/certs/ca.cert.pem"
           local: true
+    'masson/commons/mariadb/server':
+      constraints: nodes: ['nebula01.nebula.ryba']
+      config: mariadb: server:
+        current_password: ''
+        password: 'MySQL123-'
+        my_conf: {}
+    'masson/commons/mariadb/client':
+      constraints: tags: 'environment': 'dev'
+    './lib/nebula':
+      constraints: nodes: ['nebula01.nebula.ryba']
+      config: nebula:
+        password: "secret"
+        repo: "#{__dirname}/online/opennebula.repo"s
   nodes:
     'nebula01.nebula.ryba':
       tags:
