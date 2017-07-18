@@ -7,6 +7,8 @@ OpenNebula is an open-source management platform to build IaaS private, public a
         db_admin: implicit: true, module: 'ryba/commons/db_admin'
       configure: './lib/nebula/configure'
       commands:
-        'install': -> 
+        'install': ->
           options = @config.nebula
           @call './lib/nebula/install', options
+        'start': './lib/nebula/start'
+        'stop': './lib/nebula/stop'

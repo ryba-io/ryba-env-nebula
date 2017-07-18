@@ -41,8 +41,32 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_insta
 
 ## Ruby Runtime installation
 
+        @call header: 'Packages', ->
+          @service
+            header: 'g++'
+            name: 'gcc-c++'
+          @service
+            header: 'gcc'
+            name: 'gcc'
+          @service
+            header: 'curl-devel'
+            name: 'curl-devel'
+          @service
+            header: 'mysql-devell'
+            name: 'mysql-devel'
+          @service
+            header: 'openssl-devel'
+            name: 'openssl-devel'
+          @service
+            header: 'ruby-devel'
+            name: 'ruby-devel'
+          @service
+            header: 'make'
+            name: 'make'
+
 TODO run /usr/share/one/install_gems
 http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_installation.html#step-4-ruby-runtime-installation
+
 
 ## Mysql
 
