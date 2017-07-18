@@ -64,6 +64,10 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_insta
             header: 'make'
             name: 'make'
 
+TODO run /usr/share/one/install_gems
+http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_installation.html#step-4-ruby-runtime-installation
+
+
 ## Mysql
 
 TODO
