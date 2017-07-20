@@ -94,9 +94,9 @@ module.exports =
         my_conf: {}
     'masson/commons/mariadb/client':
       constraints: tags: 'environment': 'dev'
-    './lib/nebula':
+    './lib/nebula/front':
       constraints: nodes: ['nebula01.nebula.ryba']
-      config: nebula:
+      config: nebula: front:
         password: "secret"
         repo: "#{__dirname}/online/opennebula.repo"
   nodes:

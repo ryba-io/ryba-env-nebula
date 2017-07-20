@@ -1,7 +1,7 @@
 # Nebula front configure
 
     module.exports = ->
-      options = @config.nebula ?= {}
+      options = @config.nebula.front ?= {}
       throw Error "Required option: password" unless options.password
       throw Error "Required option: repo" unless options.repo
       options.source = options.repo
