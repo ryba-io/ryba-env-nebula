@@ -1,5 +1,5 @@
 
-# OpenNebula server stop
+# Open OpenNebula Front Stop
 
 OpenNebula server and Sunstone (Web UI) is stopped with the service's syntax command.
 

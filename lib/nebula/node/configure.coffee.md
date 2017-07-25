@@ -1,4 +1,5 @@
-# Nebula front configure
+
+# Open Nebula Node Configure
 
     module.exports = ->
       options = @config.nebula.node ?= {}

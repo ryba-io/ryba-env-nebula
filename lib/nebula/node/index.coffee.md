@@ -1,4 +1,5 @@
-# Nebula
+
+# Open Nebula Node
 
 OpenNebula is an open-source management platform to build IaaS private, public and hybrid clouds.
 

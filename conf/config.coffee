@@ -42,7 +42,7 @@ module.exports =
         public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsEMW3nRo32N8gnrb2lEYgwDV8Ixv1HJMe30D6PHcU6wg60mx5oEim/3x2tsVVRGv5xSz8KuAZWTmTY0h6LPRsbg41XmdPDHfzPkLOotvtSvJlLeJr9NLXh9Y7G9ZNFHbtHvV49f3Qb9khF4oV5Ou5zD3L0+X7EDOyZ5uVHAsHG/9JYFdRqLaYcBlp6OUb10aSf1/af6g+ZuCTqSsswKMuGU0GeR2ugE1JcYD17As8UXjLnhCQGqYbd4vMKoAoDPDInk+nJu00YBZ83zWBj8/ksHMLrpZ20TOnCxgC/XAKKiqCC2DFVk3azRqPFCsLFqFGRey0EjYgNybapRPFoNtT Ryba Hadoop'
         root:
           username: 'vagrant'
-        private_key_path: "~/.vagrant.d/insecure_private_key"
+          private_key_path: "~/.vagrant.d/insecure_private_key"
   services:
     'masson/core/system':
       constraints: tags: 'environment': 'dev'
@@ -129,7 +129,6 @@ module.exports =
         -----END RSA PRIVATE KEY-----
         """
         public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgccoXaSKaovgSkExo09Vv6PJmJEjIwrD+MQTLUQrhM6dSCQ40KNJkLATsrm3p14QGzT2G5IiIUVfl/dwXUS5kqOKRYJUBl5o1ETzxWCUzWUcaY7JmrAlQwQgBMwtwv/ClpYqjiHwGcoMOuobumXfsyz7f3CuqvrldQEfcv/f0u7t/78nVceDE4mjlMGH/bwyzH09CYHPnLW9S/Jvhw5hbyCTDDqheCZHb+Y3xecRV+fGDfH7onn/FWu9JRj0UWkzGZoCp8Lj5hZ/mAF2fqH5tbW36DkC66zi3jJNI9cwARHxH1TQ8DeDKnUjaY7J03CbB+RIaKh5KjbEquqWlTQSP Ryba Nebula'
-        nebula_nodes: ['nebula02.nebula.ryba', 'nebula03.nebula.ryba']
     './lib/nebula/node':
       constraints: nodes: ['nebula02.nebula.ryba', 'nebula03.nebula.ryba']
       config: nebula: node:

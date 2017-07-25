@@ -1,4 +1,5 @@
-# Nebula Front End Install
+
+# Open Nebula Front Install
 
 Install Nebula front end on the specified hosts.
 http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_installation.html
@@ -8,14 +9,13 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_insta
 
 ## Add Nebula repositories
 
-      @call header: 'Repos', ->
-        @tools.repo
-          if: options.source?
-          header: 'Repository'
-          source: options.source
-          target: options.target
-          replace: options.replace
-          update: true
+      @tools.repo
+        if: options.source?
+        header: 'Repository'
+        source: options.source
+        target: options.target
+        replace: options.replace
+        update: true
 
 ## Install
 
@@ -118,7 +118,7 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/mysql_setup.ht
 
       @call header: 'Add node host to known_hosts', ->
         @system.execute
-          cmd: "su oneadmin -c 'ssh-keyscan #{options.nebula_nodes} > /var/lib/one/.ssh/known_hosts'"
+          cmd: "su oneadmin -c 'ssh-keyscan #{options.nebula_node_hosts} > /var/lib/one/.ssh/known_hosts'"
         @system.chmod
           target: "/var/lib/one/.ssh/known_hosts"
           mode: "0600"
