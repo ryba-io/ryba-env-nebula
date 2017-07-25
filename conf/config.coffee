@@ -99,6 +99,42 @@ module.exports =
       config: nebula: front:
         password: "secret"
         repo: "#{__dirname}/online/opennebula.repo"
+        private_key: """
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpAIBAAKCAQEAoHHKF2kimqL4EpBMaNPVb+jyZiRIyMKw/jEEy1EK4TOnUgkO
+        NCjSZCwE7K5t6deEBs09huSIiFFX5f3cF1EuZKjikWCVAZeaNRE88VglM1lHGmOy
+        ZqwJUMEIATMLcL/wpaWKo4h8BnKDDrqG7pl37Ms+39wrqr65XUBH3L/39Lu7f+/J
+        1XHgxOJo5TBh/28Msx9PQmBz5y1vUvyb4cOYW8gkww6oXgmR2/mN8XnEVfnxg3x+
+        6J5/xVrvSUY9FFpMxmaAqfC4+YWf5gBdn6h+bW1t+g5Auus4t4yTSPXMAER8R9U0
+        PA3gyp1I2mOydNwmwfkSGioeSo2xKrqlpU0EjwIDAQABAoIBAH0I0GY4H6iE8nB9
+        FZ7n3sCsuCLTigkyeH5Psx3DVYg1GeL7fZ82ZOd9yoSsVqnSs2gdkCJMfP5G7gol
+        MNzW/iGh35dNvjGUdK+AdI7ck3kVzSyKn2AWF9hf5h4RKow+eIqOnKFe3tCjcvEK
+        edb9sJDPv3rzePBCW/CJBLfKvrBwVP96OGo6NC9VbiEXf4N9uR1/vvRWKIIdpAA6
+        5M7rFqfNfiDIQSjPHCTuQQlpzUm03GeCEBpG2EyvWuLrO3F79yoR/qFTJcfQNFpJ
+        3a0EnVkk9E+XVsr8pXN2AAWPEwWB9LJbpz6nR7Z/XhtSBWHD9ah9P/B7Mn+a0zk/
+        1IWkMEkCgYEAzaGx/9BT18lJegyfxdZ2Hxd2gDS3OAiMps6Jy3NgOSrnnFBnevk8
+        qx713JnfAyzREZN1FlsiGC/V1ogiGuiQpZDA9G9KpGlju1w4uBLjDu5m4NtRZkdr
+        N4lajafcgr6x2y0DTGdRGzgaH7G2VC1fu1p4mMZFe/HVYPG/OdTVUGUCgYEAx76Y
+        xn53GVSmdEeBxnHqyPiXMqZmPQvTDWiuHbgGvoSWx8iZbGotaTOlje0PoDyP4nyy
+        DbsPK7kR33790Q5nHEjnVRsTmLDiOp6Hvkv+fX9DwXtzDagUB5NmMGCl/04HXiwT
+        dIYBJQAImo/OsULaUgJSQx1VA1VHon3EeJLYn+MCgYEAzZtE+K1ceCHq1x9yTgW/
+        PB1gvpZ3MI7T3CIeA5DMgLzWsyRuI7a8I7okSbyNEYapUTKo236qG5cQ8J5Tw6YQ
+        o4uWc5IoBzbdosR2bg9se0yDD4gb3vHAUdqD8aoLQavc+HMMnkOcBGRXMqOl1Is9
+        8n5moRN2/JR1L6bo9rFJzUUCgYEAwjvsMjEuPXqcdrxGTSPfjNh3pvA6wSgrboGZ
+        txqJrGAgg1vlHZDOYduwJKgeptHdlP9u4X1CTmEkKTJDPTSFPfMCyTaQQs3W3+vi
+        0kDx0zWbPJ2ADwqfl5JVL7v8D5zf+0pfDNN2b3Vt6GbpNmRtCoxpVAxE6/3UsAUe
+        taUOc8MCgYBeFIvM0ZNaifbHV7mawMldMKpHeu1pK0e837qj2VBRLlMnnNa/FEry
+        SIYXH04Jm+pwZhiz5GOk2DaoixvhXfIx8zN+rmarmjYOu8a5tSkw8iBXK3SLvYaa
+        9C1SGHpz9j3MniDFUFggl/J7B32jbVeMzD6ooEPaGINFRZSvTdDJeg==
+        -----END RSA PRIVATE KEY-----
+        """
+        public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgccoXaSKaovgSkExo09Vv6PJmJEjIwrD+MQTLUQrhM6dSCQ40KNJkLATsrm3p14QGzT2G5IiIUVfl/dwXUS5kqOKRYJUBl5o1ETzxWCUzWUcaY7JmrAlQwQgBMwtwv/ClpYqjiHwGcoMOuobumXfsyz7f3CuqvrldQEfcv/f0u7t/78nVceDE4mjlMGH/bwyzH09CYHPnLW9S/Jvhw5hbyCTDDqheCZHb+Y3xecRV+fGDfH7onn/FWu9JRj0UWkzGZoCp8Lj5hZ/mAF2fqH5tbW36DkC66zi3jJNI9cwARHxH1TQ8DeDKnUjaY7J03CbB+RIaKh5KjbEquqWlTQSP Ryba Nebula'
+        nebula_nodes: ['nebula02.nebula.ryba', 'nebula03.nebula.ryba']
+    './lib/nebula/node':
+      constraints: nodes: ['nebula02.nebula.ryba', 'nebula03.nebula.ryba']
+      config: nebula: node:
+        server_public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgccoXaSKaovgSkExo09Vv6PJmJEjIwrD+MQTLUQrhM6dSCQ40KNJkLATsrm3p14QGzT2G5IiIUVfl/dwXUS5kqOKRYJUBl5o1ETzxWCUzWUcaY7JmrAlQwQgBMwtwv/ClpYqjiHwGcoMOuobumXfsyz7f3CuqvrldQEfcv/f0u7t/78nVceDE4mjlMGH/bwyzH09CYHPnLW9S/Jvhw5hbyCTDDqheCZHb+Y3xecRV+fGDfH7onn/FWu9JRj0UWkzGZoCp8Lj5hZ/mAF2fqH5tbW36DkC66zi3jJNI9cwARHxH1TQ8DeDKnUjaY7J03CbB+RIaKh5KjbEquqWlTQSP Ryba Nebula'
+        repo: "#{__dirname}/online/opennebula.repo"
   nodes:
     'nebula01.nebula.ryba':
       tags:

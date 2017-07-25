@@ -97,3 +97,32 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/mysql_setup.ht
           content: "oneadmin:#{options.password}"
           target: "/var/lib/one/.one/one_auth"
           eof: true
+
+## Set private and public key for oneadmin
+
+      @call header: 'Set keys', ->
+        @file
+          header: "private"
+          content: options.private_key
+          target: "/var/lib/one/.ssh/id_rsa"
+          mode: "0600"
+          eof: true
+        @file
+          header: "public"
+          content: options.public_key
+          target: "/var/lib/one/.ssh/id_rsa.pub"
+          mode: "0600"
+          eof: true
+
+## Add nodes key to known_hosts
+
+      @call header: 'Add node host to known_hosts', ->
+        @system.execute
+          cmd: "su oneadmin -c 'ssh-keyscan #{options.nebula_nodes} > /var/lib/one/.ssh/known_hosts'"
+        @system.chmod
+          target: "/var/lib/one/.ssh/known_hosts"
+          mode: "0600"
+        @system.chown
+          target: "/var/lib/one/.ssh/known_hosts"
+          uid: "oneadmin"
+          gid: "oneadmin"

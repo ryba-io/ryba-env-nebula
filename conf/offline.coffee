@@ -21,5 +21,8 @@ module.exports =
       config: ntp:
         fudge: true
     './lib/nebula/front':
-      config: nebula:
+      config: nebula: front:
+        repo: "#{__dirname}/offline/opennebula.repo"
+    './lib/nebula/node':
+      config: nebula: node:
         repo: "#{__dirname}/offline/opennebula.repo"
