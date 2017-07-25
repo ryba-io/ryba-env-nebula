@@ -1,3 +1,4 @@
+
 # Nebula
 
 OpenNebula is an open-source management platform to build IaaS private, public and hybrid clouds.
@@ -8,6 +9,9 @@ OpenNebula is an open-source management platform to build IaaS private, public a
         front: './lib/nebula/front'
       configure: './lib/nebula/front/configure'
       commands:
+        'prepare': ->
+          options = @config.nebula.front
+          @call './lib/nebula/front/prepare'
         'install': ->
           options = @config.nebula.front
           @call './lib/nebula/front/install', options
