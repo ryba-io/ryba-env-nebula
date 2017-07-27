@@ -120,6 +120,22 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/mysql_setup.ht
           target: "/var/lib/one/.ssh/known_hosts"
           uid: "oneadmin"
           gid: "oneadmin"
+          
+## Start services
+
+      @call header: 'Starting OpenNebula Front-End', ->
+        @service.start
+          name: 'opennebula'
+        @service.start
+          name: 'opennebula-sunstone'
+
+## Add Nodes
+
+      @call header: 'Add node host to opennebula', ->
+        for node_host in options.nebula_node_hosts
+          @system.execute
+            cmd: "su oneadmin -c 'onehost create #{node_host} -i kvm -v kvm'"
+            code_skipped: 255 
 
 ## Dependencies
 
