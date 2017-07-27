@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* front: fix keyscan
 * run: remove global configuration
 * front: gem installation
 * front: prepare gem download
