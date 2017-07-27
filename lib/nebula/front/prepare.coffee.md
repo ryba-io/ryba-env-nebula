@@ -12,9 +12,12 @@ curl -L get.rvm.io > rvm-install
 bash < ./rvm-install
 echo '# Source RVM' >> ~/.profile
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.profile
+echo 'if which ruby >/dev/null && which gem >/dev/null; then PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"; fi' >> ~/.profile
+. ~/.profile
 # Arch specific
 sudo pacman -S openssl-1.0 # Probably already installed
 PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig:/usr/lib/pkgconfig rvm install 2.0.0
+
 ```
 
     module.exports =
@@ -48,9 +51,10 @@ PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig:/usr/lib/pkgconfig rvm install 2.
           """
         @system.execute
           header: 'Download'
+          if: -> @status -1
           cwd: path.resolve options.cache_dir, 'nebula'
           cmd: """
-          gem install bundler
+          gem install --user-install bundler
           bundler package
           """
 
