@@ -3,7 +3,7 @@
 
 Install Nebula on nodes
 
-    module.exports = header: 'Nebula Install', handler: (options) ->
+    module.exports = header: 'Nebula Node Install', handler: (options) ->
 
 ## Add Nebula repositories
 
