@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* package: add readme
 * front: add front ssh key to known_hosts
 * vagrant: use libvirt instead of virtualbox
 * front: fix keyscan
