@@ -112,6 +112,7 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/mysql_setup.ht
 
       @call header: 'Add node host to known_hosts', ->
         @system.execute
+          if: options.nebula_node_hosts && options.nebula_node_hosts.length > 0
           cmd: "su oneadmin -c 'ssh-keyscan #{options.nebula_node_hosts.join(' ')} > /var/lib/one/.ssh/known_hosts'"
         @system.execute
           cmd: "su oneadmin -c 'ssh-keyscan $HOSTNAME >> /var/lib/one/.ssh/known_hosts'"
