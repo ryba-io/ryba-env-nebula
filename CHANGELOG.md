@@ -3,6 +3,8 @@
 
 ## Trunk
 
+* front: add front ssh key to known_hosts
+* vagrant: use libvirt instead of virtualbox
 * front: fix keyscan
 * run: remove global configuration
 * front: gem installation
