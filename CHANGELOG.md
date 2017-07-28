@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* nebulanode: remove nebula01 as a node
 * front: fix use
 * package: add readme
 * front: add front ssh key to known_hosts
