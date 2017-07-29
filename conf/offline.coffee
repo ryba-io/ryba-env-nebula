@@ -21,6 +21,7 @@ module.exports =
         fudge: true
     './lib/nebula/front':
       config: nebula: front:
+        cache_dir: './cache'
         repo: "#{__dirname}/offline/opennebula.repo"
     './lib/nebula/node':
       config: nebula: node:

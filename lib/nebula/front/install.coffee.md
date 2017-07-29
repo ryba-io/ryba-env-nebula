@@ -67,24 +67,18 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/frontend_insta
             header: 'rubygems'
             name: 'rubygems'
         @call header: 'Gems install', ->
-          @system.execute
-            header: 'rack'
-            cmd: '/usr/bin/gem install rack --version "< 2.0.0"'
-          @system.execute
-            header: 'sinatra'
-            cmd: '/usr/bin/gem install sinatra --version "< 2.0.0"'
-          @system.execute
-            header: 'thin'
-            cmd: '/usr/bin/gem install thin'
-          @system.execute
-            header: 'memcache-client'
-            cmd: '/usr/bin/gem install memcache-client'
-          @system.execute
-            header: 'zendesk_api'
-            cmd: '/usr/bin/gem install zendesk_api --version "< 1.14.0"'
-          @execute
-            header: 'builder'
-            cmd: '/usr/bin/gem install builder'
+          @tools.rubygems.install
+            if: options.cache_dir
+            source: path.resolve options.cache_dir, 'vendor', 'cache', "*.gem"
+          @tools.rubygems.install
+            unless: options.cache_dir
+            gems:
+              'rack': '< 2.0.0'
+              'sinatra': '< 2.0.0'
+              'thin': null
+              'memcache-client': null
+              'zendesk_api': '< 1.14.0'
+              'builder': null
 ## Mysql
 
 TODO
@@ -126,3 +120,7 @@ http://docs.opennebula.org/5.2/deployment/opennebula_installation/mysql_setup.ht
           target: "/var/lib/one/.ssh/known_hosts"
           uid: "oneadmin"
           gid: "oneadmin"
+
+## Dependencies
+
+    path = require 'path'

@@ -15,6 +15,7 @@
 
 ## Normalization
 
+      options.cache_dir ?= null
       options.source = options.repo
       options.target ?= 'opennebula.repo'
       options.target = path.resolve '/etc/yum.repos.d', options.target
