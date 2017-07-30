@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* run: remove global configuration
 * front: gem installation
 * front: prepare gem download
 * front: esthetic and config fix
