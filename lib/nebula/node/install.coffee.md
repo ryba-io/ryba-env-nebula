@@ -7,14 +7,13 @@ Install Nebula on nodes
 
 ## Add Nebula repositories
 
-      @call header: 'Repos', ->
-        @tools.repo
-          if: options.source?
-          header: 'Repository'
-          source: options.source
-          target: options.target
-          replace: options.replace
-          update: true
+      @tools.repo
+        if: options.source?
+        header: 'Repository'
+        source: options.source
+        target: options.target
+        replace: options.replace
+        update: true
 
 ## Install
 
@@ -25,18 +24,17 @@ Install Nebula on nodes
 
 ## Service libvirtd start
 
-      @call header: 'Start libvirtd', ->
-        @service.restart
-          name: 'libvirtd'
+      @service.restart
+        header: 'Start libvirtd'
+        name: 'libvirtd'
 
 ## Set SSH key of the admin for password less login
 
-      @call header: 'Set Authorized keys', ->
-        @file
-          header: "authorized keys"
-          content: options.server_public_key
-          target: "/var/lib/one/.ssh/authorized_keys"
-          mode: "0600"
-          uid: "oneadmin"
-          gid: "oneadmin"
-          eof: true
+      @file
+        header: "Authorized Keys"
+        content: options.server_public_key
+        target: "/var/lib/one/.ssh/authorized_keys"
+        mode: "0600"
+        uid: "oneadmin"
+        gid: "oneadmin"
+        eof: true

@@ -2,8 +2,10 @@
 # Open Nebula Front Configure
 
     module.exports = ->
-      options = @config.nebula.front ?= {}
-      nodes_ctxs = @contexts './lib/nebula/node'
+      service = migration.call @, service, './lib/nebula/front', ['nebula', 'front'], require('nikita/lib/misc').merge require('.').use,
+        nebula_node: key: ['ryba', 'nebula', 'node']
+      @config.ryba ?= {}
+      options = @config.nebula.front = service.options
 
 ## Validation
 
@@ -15,13 +17,15 @@
 
 ## Normalization
 
-      options.cache_dir ?= null
+      # Where the gem are stored local after being downloaded in prepare
+      options.gem_dir ?= path.resolve options.cache_dir, 'nebula', 'gems'
       options.source = options.repo
       options.target ?= 'opennebula.repo'
-      options.target = path.resolve '/etc/yum.repos.d', options.target
+      options.target = path.posix.resolve '/etc/yum.repos.d', options.target
       options.replace ?= 'opennebula*'
-      options.nebula_node_hosts = nodes_ctxs.map (ctx) -> ctx.config.host
+      options.nebula_node_hosts = service.use.nebula_node.map (srv) -> srv.node.fqdn
 
 ## Dependencies
 
-    path = require('path').posix
+    path = require 'path'
+    migration = require 'masson/lib/migration'

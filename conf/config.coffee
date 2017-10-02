@@ -86,10 +86,11 @@ module.exports =
           source: "#{__dirname}/certs/ca.cert.pem"
           local: true
     'masson/commons/mariadb/server':
-      constraints: nodes: ['nebula01.nebula.ryba']
+      constraints: nodes: ['nebula01.nebula.ryba', 'nebula02.nebula.ryba']
       config: mariadb: server:
         current_password: ''
-        password: 'MySQL123-'
+        admin_password: 'Maria123-'
+        repl_master: password: 'MariaReqpl123-'
         my_conf: {}
     'masson/commons/mariadb/client':
       constraints: tags: 'environment': 'dev'

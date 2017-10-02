@@ -37,9 +37,11 @@ PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig:/usr/lib/pkgconfig rvm install 2.
           trap: true
         , (err) ->
           throw Error "Ruby version 2.0.0 or RVM must be installed" if err?.code is 4
+        @system.mkdir
+          target: options.gem_dir
         @file
           header: 'Gems'
-          target: path.resolve options.cache_dir, 'nebula', 'Gemfile'
+          target: path.resolve options.gem_dir, 'Gemfile'
           content: """
           source 'https://rubygems.org'
           gem 'rack', '< 2.0.0'

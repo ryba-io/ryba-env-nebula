@@ -1,3 +1,12 @@
+
+# OpenNebula
+
+## TODO
+
+* HA Front instalation
+* External database configuration
+* SSH inter-node communication
+
 ## Description
 
 Configures OpenNebula cluster using libvirt/kvm nested virtualization in Vagrant. Vagrant starts 3 nodes.

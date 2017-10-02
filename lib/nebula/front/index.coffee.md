@@ -5,13 +5,12 @@ OpenNebula is an open-source management platform to build IaaS private, public a
 
     module.exports =
       use:
-        db_admin: implicit: true, module: 'ryba/commons/db_admin'
-        node: './lib/nebula/node'
+        nebula_node: module: './lib/nebula/node'
       configure: './lib/nebula/front/configure'
       commands:
         'prepare': ->
           options = @config.nebula.front
-          @call './lib/nebula/front/prepare'
+          @call './lib/nebula/front/prepare', options
         'install': ->
           options = @config.nebula.front
           @call './lib/nebula/front/install', options
