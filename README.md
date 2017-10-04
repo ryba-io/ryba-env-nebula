@@ -1,6 +1,10 @@
 
 # OpenNebula
 
+OpenNebula combines existing virtualization technologies with advanced features 
+for multi-tenancy, automatic provision and elasticity, following a bottom-up 
+approach driven by the real needs of sysadmins and devops.
+
 ## TODO
 
 * HA Front instalation
@@ -49,5 +53,6 @@ git clone https://github.com/ryba-io/ryba-env-nebula
 cd ryba-env-nebula
 npm install
 ./bin/vagrant up
+./bin/ryba prepare
 ./bin/ryba install
 ```
